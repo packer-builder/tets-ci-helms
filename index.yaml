@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  example-app:
+  - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2026-01-09T19:20:02.452768426Z"
+    description: An example Helm chart for Kubernetes applications
+    digest: e93f31422e1a19660faa2d6cca709788c33f1dba1495935f3f4a35ae26818783
+    maintainers:
+    - email: your-email@example.com
+      name: your-name
+    name: example-app
+    type: application
+    urls:
+    - https://github.com/packer-builder/tets-ci-helms/releases/download/example-app-0.2.0/example-app-0.2.0.tgz
+    version: 0.2.0
+generated: "2026-01-09T19:20:02.452791058Z"
