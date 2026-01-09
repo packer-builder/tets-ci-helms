@@ -18,10 +18,15 @@ A Helm chart for deploying API services
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"latest"` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"100m"` |  |
-| resources.limits.memory | string | `"128Mi"` |  |
-| resources.requests.cpu | string | `"50m"` |  |
-| resources.requests.memory | string | `"64Mi"` |  |
+| resourceProfile | string | `"default"` |  |
+| resources.default.limits.cpu | string | `"100m"` |  |
+| resources.default.limits.memory | string | `"128Mi"` |  |
+| resources.default.requests.cpu | string | `"50m"` |  |
+| resources.default.requests.memory | string | `"64Mi"` |  |
+| resources.high.limits.cpu | string | `"500m"` |  |
+| resources.high.limits.memory | string | `"512Mi"` |  |
+| resources.high.requests.cpu | string | `"200m"` |  |
+| resources.high.requests.memory | string | `"256Mi"` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 

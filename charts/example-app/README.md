@@ -49,7 +49,7 @@ helm uninstall my-release
 | ingress.enabled | bool | `false` | Enable ingress controller resource |
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]` | Ingress hosts configuration |
 | ingress.tls | list | `[]` | TLS configuration for ingress |
-| livenessProbe | object | `{"enabled":true,"initialDelaySeconds":30,"path":"/health","periodSeconds":10,"port":80}` | Liveness probe configuration |
+| livenessProbe | object | `{"enabled":true,"initialDelaySeconds":15,"path":"/health","periodSeconds":10,"port":80}` | Liveness probe configuration |
 | nameOverride | string | `""` | Override the name of the chart |
 | nodeSelector | object | `{}` | Node selector for pod assignment |
 | podAnnotations | object | `{}` | Annotations to add to the pod |
