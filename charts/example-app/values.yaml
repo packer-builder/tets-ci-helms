@@ -1,5 +1,5 @@
 # -- Number of replicas for the deployment
-replicaCount: 2
+replicaCount: 3
 
 image:
   # -- Container image repository
