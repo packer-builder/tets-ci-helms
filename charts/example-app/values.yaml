@@ -101,3 +101,19 @@ tolerations: []
 
 # -- Affinity rules for pod assignment
 affinity: {}
+
+# -- Liveness probe configuration
+livenessProbe:
+  enabled: true
+  path: /health
+  port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+# -- Readiness probe configuration
+readinessProbe:
+  enabled: true
+  path: /ready
+  port: 80
+  initialDelaySeconds: 5
+  periodSeconds: 5
