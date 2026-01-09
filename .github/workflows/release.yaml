@@ -121,6 +121,7 @@ jobs:
             echo "No version changes to commit"
           else
             git commit -m "$COMMIT_MSG"
+            git pull --rebase origin main
             git push
             echo "Committed and pushed all version bumps"
           fi
