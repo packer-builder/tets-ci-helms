@@ -10,6 +10,7 @@ on:
 jobs:
   validate-commits:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,6 +24,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,6 +53,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: lint
     steps:
       - name: Checkout
@@ -77,6 +80,9 @@ jobs:
       - name: Create kind cluster
         if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@v1
+        with:
+          wait: 60s
+          kubectl_version: v1.28.0
 
       - name: Run chart-testing (install)
         if: steps.list-changed.outputs.changed == 'true'
