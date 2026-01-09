@@ -23,7 +23,7 @@ fi
 
 # Get current version
 CURRENT_VERSION=$(grep '^version:' "$CHART_YAML" | awk '{print $2}')
-echo "Current version: $CURRENT_VERSION"
+echo "Current version: $CURRENT_VERSION" >&2
 
 # Split version into parts
 IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
@@ -49,7 +49,7 @@ case $BUMP_TYPE in
 esac
 
 NEW_VERSION="$MAJOR.$MINOR.$PATCH"
-echo "New version: $NEW_VERSION"
+echo "New version: $NEW_VERSION" >&2
 
 # Update Chart.yaml
 sed -i.bak "s/^version: .*/version: $NEW_VERSION/" "$CHART_YAML"
