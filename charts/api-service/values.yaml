@@ -1,3 +1,4 @@
+# Default configuration for api-service
 replicaCount: 1
 
 image:
