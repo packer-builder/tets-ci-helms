@@ -21,7 +21,7 @@ helm install <release-name> <repo-name>/<chart-name>
 
 | Chart | Version | App Version | Description |
 |-------|---------|-------------|-------------|
-| [example-app](./charts/example-app) | 0.1.0 | 1.0.2 | An example Helm chart for Kubernetes applications |
+| [example-app](./charts/example-app) | 0.1.0 | 1.0.3 | An example Helm chart for Kubernetes applications |
 
 ## Development
 
