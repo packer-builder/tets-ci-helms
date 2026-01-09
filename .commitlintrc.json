@@ -25,7 +25,8 @@
     ],
     "scope-empty": [0, "never"],
     "subject-case": [0, "never"],
-    "body-max-line-length": [0, "always"]
+    "body-max-line-length": [0, "always"],
+    "footer-max-line-length": [0, "always"]
   },
   "helpUrl": "https://www.conventionalcommits.org/"
 }
