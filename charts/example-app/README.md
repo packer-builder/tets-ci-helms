@@ -42,7 +42,7 @@ helm uninstall my-release
 | fullnameOverride | string | `""` | Override the full name of the chart |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"nginx"` | Container image repository |
-| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion |
+| image.tag | string | `"stable"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Image pull secrets for private registries |
 | ingress.annotations | object | `{}` | Additional annotations for the Ingress resource |
 | ingress.className | string | `""` | IngressClass that will be used |
@@ -56,7 +56,7 @@ helm uninstall my-release
 | podLabels | object | `{}` | Labels to add to the pod |
 | podSecurityContext | object | `{}` | Pod security context |
 | readinessProbe | object | `{"enabled":true,"initialDelaySeconds":5,"path":"/ready","periodSeconds":5,"port":80}` | Readiness probe configuration |
-| replicaCount | int | `1` | Number of replicas for the deployment |
+| replicaCount | int | `2` | Number of replicas for the deployment |
 | resources | object | See values.yaml | Container resource requests and limits |
 | securityContext | object | `{}` | Container security context |
 | service.port | int | `80` | Service port |
