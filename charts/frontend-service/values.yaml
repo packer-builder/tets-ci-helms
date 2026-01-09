@@ -1,3 +1,4 @@
+# Default replicas
 replicaCount: 1
 
 image:
