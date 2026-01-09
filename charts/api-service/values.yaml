@@ -1,4 +1,5 @@
 # Default configuration for api-service
+# Minimum replicas for production workloads
 replicaCount: 1
 
 image:
