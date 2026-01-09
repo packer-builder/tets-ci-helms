@@ -90,6 +90,7 @@ jobs:
         run: |
           git add charts/${{ matrix.chart }}/Chart.yaml
           git commit -m "chore(${{ matrix.chart }}): bump version to ${{ steps.bump-version.outputs.new_version }} [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main || true
           git push
 
       - name: Set up Helm
@@ -128,4 +129,5 @@ jobs:
           helm repo index . --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           git add index.yaml
           git commit -m "chore: update helm repo index [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin gh-pages || true
           git push
