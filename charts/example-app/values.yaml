@@ -1,5 +1,5 @@
 # -- Number of replicas for the deployment
-replicaCount: 1
+replicaCount: 2
 
 image:
   # -- Container image repository
@@ -7,7 +7,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion
-  tag: ""
+  tag: "stable"
 
 # -- Image pull secrets for private registries
 imagePullSecrets: []
