@@ -1,5 +1,6 @@
 # -- Number of replicas for the deployment
-replicaCount: 1
+# CI test: example-app individual change
+replicaCount: 3
 
 image:
   # -- Container image repository
