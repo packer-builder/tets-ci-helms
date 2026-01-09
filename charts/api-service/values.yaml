@@ -1,7 +1,7 @@
 # Default configuration for api-service
 # Minimum replicas for production workloads
-# Updated: testing CI workflow - api-service individual test
-replicaCount: 2
+# Updated: full flow test - api-service
+replicaCount: 3
 
 image:
   repository: nginx
