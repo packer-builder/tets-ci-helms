@@ -3,6 +3,19 @@ entries:
   api-service:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-09T22:56:51.845578197Z"
+    description: A Helm chart for deploying API services
+    digest: 98aeb3da0e93a3deaa3993dc7f90c9e8892235d4d30ce664c0b86c88c2beadce
+    maintainers:
+    - email: platform@example.com
+      name: platform-team
+    name: api-service
+    type: application
+    urls:
+    - https://github.com/packer-builder/tets-ci-helms/releases/download/api-service-1.0.1/api-service-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-01-09T19:30:12.782020319Z"
     description: A Helm chart for deploying API services
     digest: 911c9db1e89005ad2cbc11bcd7c8f550e7623abf46d6a15f767bd151836bbcbc
@@ -68,4 +81,4 @@ entries:
     urls:
     - https://github.com/packer-builder/tets-ci-helms/releases/download/frontend-service-0.1.0/frontend-service-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-09T21:37:47.267118589Z"
+generated: "2026-01-09T22:56:51.845596685Z"
