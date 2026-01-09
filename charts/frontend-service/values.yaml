@@ -16,3 +16,13 @@ resources:
   requests:
     cpu: 50m
     memory: 64Mi
+
+# Ingress configuration
+ingress:
+  enabled: false
+  className: ""
+  hosts:
+    - host: frontend.local
+      paths:
+        - path: /
+          pathType: Prefix
