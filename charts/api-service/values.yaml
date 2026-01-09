@@ -1,5 +1,6 @@
 # Default configuration for api-service
 # Minimum replicas for production workloads
+# Updated: testing new CI workflow
 replicaCount: 1
 
 image:
