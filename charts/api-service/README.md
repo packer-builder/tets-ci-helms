@@ -27,7 +27,7 @@ A Helm chart for deploying API services
 | resources.high.limits.memory | string | `"512Mi"` |  |
 | resources.high.requests.cpu | string | `"200m"` |  |
 | resources.high.requests.memory | string | `"256Mi"` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `9090` |  |
 | service.type | string | `"ClusterIP"` |  |
 
 ----------------------------------------------

@@ -56,7 +56,7 @@ helm uninstall my-release
 | podLabels | object | `{}` | Labels to add to the pod |
 | podSecurityContext | object | `{}` | Pod security context |
 | readinessProbe | object | `{"enabled":true,"initialDelaySeconds":5,"path":"/ready","periodSeconds":5,"port":80}` | Readiness probe configuration |
-| replicaCount | int | `2` | Number of replicas for the deployment |
+| replicaCount | int | `3` | Number of replicas for the deployment |
 | resources | object | See values.yaml | Container resource requests and limits |
 | securityContext | object | `{}` | Container security context |
 | service.port | int | `80` | Service port |
