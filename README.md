@@ -61,3 +61,5 @@ ct install --config ct.yaml
 ## License
 
 See [LICENSE](./LICENSE) for details.
+
+<!-- CI test: this change should NOT trigger lint-test workflow -->
