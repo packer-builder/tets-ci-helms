@@ -17,7 +17,7 @@ A Helm chart for deploying API services
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"latest"` |  |
-| replicaCount | int | `2` |  |
+| replicaCount | int | `3` |  |
 | resourceProfile | string | `"default"` |  |
 | resources.default.limits.cpu | string | `"100m"` |  |
 | resources.default.limits.memory | string | `"128Mi"` |  |
