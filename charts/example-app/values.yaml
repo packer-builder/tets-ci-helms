@@ -107,7 +107,7 @@ livenessProbe:
   enabled: true
   path: /health
   port: 80
-  initialDelaySeconds: 30
+  initialDelaySeconds: 15
   periodSeconds: 10
 
 # -- Readiness probe configuration
