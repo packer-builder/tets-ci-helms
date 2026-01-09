@@ -1,5 +1,19 @@
 apiVersion: v1
 entries:
+  api-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-01-09T19:30:12.782020319Z"
+    description: A Helm chart for deploying API services
+    digest: 911c9db1e89005ad2cbc11bcd7c8f550e7623abf46d6a15f767bd151836bbcbc
+    maintainers:
+    - email: platform@example.com
+      name: platform-team
+    name: api-service
+    type: application
+    urls:
+    - https://github.com/packer-builder/tets-ci-helms/releases/download/api-service-0.2.0/api-service-0.2.0.tgz
+    version: 0.2.0
   example-app:
   - apiVersion: v2
     appVersion: 1.0.3
@@ -14,4 +28,17 @@ entries:
     urls:
     - https://github.com/packer-builder/tets-ci-helms/releases/download/example-app-0.2.0/example-app-0.2.0.tgz
     version: 0.2.0
-generated: "2026-01-09T19:20:02.452791058Z"
+  - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2026-01-09T19:30:12.919254829Z"
+    description: An example Helm chart for Kubernetes applications
+    digest: 23245f510603a6d3cb0fc6f8ca7e9853719403306630c0e711ee76c5d1c1c302
+    maintainers:
+    - email: your-email@example.com
+      name: your-name
+    name: example-app
+    type: application
+    urls:
+    - https://github.com/packer-builder/tets-ci-helms/releases/download/example-app-0.1.0/example-app-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-01-09T19:30:13.080130307Z"
