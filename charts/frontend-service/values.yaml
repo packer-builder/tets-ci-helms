@@ -1,5 +1,5 @@
 # Default replicas
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: nginx
