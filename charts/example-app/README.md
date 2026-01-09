@@ -49,11 +49,13 @@ helm uninstall my-release
 | ingress.enabled | bool | `false` | Enable ingress controller resource |
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]` | Ingress hosts configuration |
 | ingress.tls | list | `[]` | TLS configuration for ingress |
+| livenessProbe | object | `{"enabled":true,"initialDelaySeconds":30,"path":"/health","periodSeconds":10,"port":80}` | Liveness probe configuration |
 | nameOverride | string | `""` | Override the name of the chart |
 | nodeSelector | object | `{}` | Node selector for pod assignment |
 | podAnnotations | object | `{}` | Annotations to add to the pod |
 | podLabels | object | `{}` | Labels to add to the pod |
 | podSecurityContext | object | `{}` | Pod security context |
+| readinessProbe | object | `{"enabled":true,"initialDelaySeconds":5,"path":"/ready","periodSeconds":5,"port":80}` | Readiness probe configuration |
 | replicaCount | int | `1` | Number of replicas for the deployment |
 | resources | object | See values.yaml | Container resource requests and limits |
 | securityContext | object | `{}` | Container security context |
