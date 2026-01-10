@@ -31,3 +31,11 @@ resources:
 
 # Active resource profile to use
 resourceProfile: default
+
+# Health check configuration
+healthCheck:
+  enabled: true
+  path: /health
+  port: 9090
+  initialDelaySeconds: 10
+  periodSeconds: 15

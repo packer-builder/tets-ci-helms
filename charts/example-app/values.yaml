@@ -117,3 +117,11 @@ readinessProbe:
   port: 80
   initialDelaySeconds: 5
   periodSeconds: 5
+
+# -- Startup probe configuration
+startupProbe:
+  enabled: false
+  path: /health
+  port: 80
+  failureThreshold: 30
+  periodSeconds: 10

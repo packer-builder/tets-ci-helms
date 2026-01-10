@@ -35,3 +35,9 @@ autoscaling:
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
+
+# Graceful shutdown configuration
+lifecycle:
+  preStop:
+    enabled: true
+    sleepSeconds: 5
