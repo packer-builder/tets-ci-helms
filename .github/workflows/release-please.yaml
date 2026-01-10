@@ -101,7 +101,7 @@ jobs:
         with:
           version: v3.14.0
 
-      - name: Update Helm repo index
+      - name: Update Helm repo index and README
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -118,8 +118,77 @@ jobs:
             helm repo index .chart-packages --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
             mv .chart-packages/index.yaml ./index.yaml
 
-            git add index.yaml
-            git commit -m "chore: update helm repo index [skip ci]" || echo "No changes to commit"
+            # Generate README with available charts and versions
+            cat > README.md << 'EOF'
+          # Helm Charts Repository
+
+          This repository hosts Helm charts for Kubernetes deployments.
+
+          ## Usage
+
+          ### Add the repository
+
+          ```bash
+          helm repo add tets-ci-helms https://packer-builder.github.io/tets-ci-helms
+          helm repo update
+          ```
+
+          ### Search available charts
+
+          ```bash
+          helm search repo tets-ci-helms
+          ```
+
+          ### Install a chart
+
+          ```bash
+          helm install my-release tets-ci-helms/<chart-name>
+          ```
+
+          ## Available Charts
+
+          EOF
+
+            # Parse index.yaml and generate chart sections with versions
+            python3 << 'PYSCRIPT'
+          import yaml
+
+          with open('index.yaml', 'r') as f:
+              index = yaml.safe_load(f)
+
+          entries = index.get('entries', {})
+
+          for chart_name in sorted(entries.keys()):
+              versions = entries[chart_name]
+              if versions:
+                  latest = versions[0]
+                  description = latest.get('description', 'No description')
+                  all_versions = [v.get('version', '') for v in versions]
+
+                  print(f"### {chart_name}")
+                  print(f"")
+                  print(f"{description}")
+                  print(f"")
+                  print(f"**Latest version:** `{latest.get('version', 'N/A')}`")
+                  print(f"")
+                  print(f"**Available versions:** {', '.join([f'`{v}`' for v in all_versions])}")
+                  print(f"")
+                  print(f"```bash")
+                  print(f"helm install my-{chart_name} tets-ci-helms/{chart_name}")
+                  print(f"```")
+                  print(f"")
+          PYSCRIPT
+            >> README.md
+
+            cat >> README.md << 'EOF'
+          ## Links
+
+          - [Source Repository](https://github.com/packer-builder/tets-ci-helms)
+          - [Helm Documentation](https://helm.sh/docs/)
+          EOF
+
+            git add index.yaml README.md
+            git commit -m "chore: update helm repo index and README [skip ci]" || echo "No changes to commit"
             git pull --rebase origin gh-pages || true
             git push
           else
