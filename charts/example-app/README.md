@@ -1,6 +1,6 @@
 # example-app
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square)
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square)
 
 An example Helm chart for Kubernetes applications
 
@@ -110,6 +110,7 @@ helm uninstall my-app
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set, a name is generated |
+| startupProbe | object | `{"enabled":false,"failureThreshold":30,"path":"/health","periodSeconds":10,"port":80}` | Startup probe configuration |
 | tolerations | list | `[]` | Tolerations for pod assignment |
 
 ## Changelog

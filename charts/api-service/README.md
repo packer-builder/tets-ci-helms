@@ -1,6 +1,6 @@
 # api-service
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 A Helm chart for deploying API services
 
@@ -76,6 +76,11 @@ helm uninstall my-api
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| healthCheck.enabled | bool | `true` |  |
+| healthCheck.initialDelaySeconds | int | `10` |  |
+| healthCheck.path | string | `"/health"` |  |
+| healthCheck.periodSeconds | int | `15` |  |
+| healthCheck.port | int | `9090` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"latest"` |  |
