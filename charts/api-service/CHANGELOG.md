@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/packer-builder/tets-ci-helms/compare/api-service-v1.2.0...api-service-1.3.0) (2026-01-10)
+
+
+### Features
+
+* **api-service:** add timeout configuration to health check ([24bb5b2](https://github.com/packer-builder/tets-ci-helms/commit/24bb5b234347f23bd2c36caf3ae7c24ae2f40625))
+
 ## [1.2.0](https://github.com/packer-builder/tets-ci-helms/compare/api-service-1.1.0...api-service-v1.2.0) (2026-01-10)
 
 
