@@ -22,7 +22,7 @@ helm install <release-name> <repo-name>/<chart-name>
 | Chart | Version | App Version | Description |
 |-------|---------|-------------|-------------|
 | [api-service](./charts/api-service) | 1.3.0 | 1.0.0 | A Helm chart for deploying API services |
-| [example-app](./charts/example-app) | 0.6.1 | 1.0.3 | An example Helm chart for Kubernetes applications |
+| [example-app](./charts/example-app) | 0.7.0 | 1.0.3 | An example Helm chart for Kubernetes applications |
 | [frontend-service](./charts/frontend-service) | 0.6.0 | 1.0.0 | A Helm chart for deploying Frontend services |
 
 ## Development
