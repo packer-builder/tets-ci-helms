@@ -125,3 +125,4 @@ startupProbe:
   port: 80
   failureThreshold: 30
   periodSeconds: 10
+  timeoutSeconds: 3
