@@ -94,6 +94,16 @@ helm uninstall my-frontend
 | ingress.hosts[0].paths[0].pathType | string | `"Prefix"` |  |
 | lifecycle.preStop.enabled | bool | `true` |  |
 | lifecycle.preStop.sleepSeconds | int | `5` |  |
+| livenessProbe.enabled | bool | `true` |  |
+| livenessProbe.initialDelaySeconds | int | `10` |  |
+| livenessProbe.path | string | `"/healthz"` |  |
+| livenessProbe.periodSeconds | int | `10` |  |
+| livenessProbe.port | int | `80` |  |
+| readinessProbe.enabled | bool | `true` |  |
+| readinessProbe.initialDelaySeconds | int | `5` |  |
+| readinessProbe.path | string | `"/ready"` |  |
+| readinessProbe.periodSeconds | int | `5` |  |
+| readinessProbe.port | int | `80` |  |
 | replicaCount | int | `2` |  |
 | resources.limits.cpu | string | `"200m"` |  |
 | resources.limits.memory | string | `"256Mi"` |  |
