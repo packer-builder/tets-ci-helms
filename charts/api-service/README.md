@@ -81,6 +81,7 @@ helm uninstall my-api
 | healthCheck.path | string | `"/health"` |  |
 | healthCheck.periodSeconds | int | `15` |  |
 | healthCheck.port | int | `9090` |  |
+| healthCheck.timeoutSeconds | int | `5` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"latest"` |  |
