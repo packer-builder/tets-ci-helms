@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
+      paths_released: ${{ steps.release.outputs.paths_released }}
     steps:
       - name: Release Please
         id: release
@@ -47,13 +48,35 @@ jobs:
         with:
           version: v3.14.0
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.6.0
-        with:
-          charts_dir: charts
-          skip_existing: true
+      - name: Package and upload charts
         env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get released paths from release-please
+          PATHS='${{ needs.release-please.outputs.paths_released }}'
+          echo "Released paths: $PATHS"
+
+          # Package each released chart and upload to its release
+          for path in $(echo "$PATHS" | jq -r '.[]'); do
+            chart_name=$(basename "$path")
+            echo "Processing chart: $chart_name in $path"
+
+            # Get version from Chart.yaml
+            version=$(grep '^version:' "$path/Chart.yaml" | awk '{print $2}')
+            echo "Chart version: $version"
+
+            # Package the chart
+            helm package "$path" -d .cr-release-packages/
+
+            # Upload to the release
+            tag="${chart_name}-${version}"
+            pkg_file=".cr-release-packages/${chart_name}-${version}.tgz"
+
+            if [[ -f "$pkg_file" ]]; then
+              echo "Uploading $pkg_file to release $tag"
+              gh release upload "$tag" "$pkg_file" --clobber || echo "Failed to upload to $tag"
+            fi
+          done
 
   update-index:
     needs: release-charts
@@ -62,7 +85,7 @@ jobs:
       contents: write
       pages: write
     steps:
-      - name: Checkout
+      - name: Checkout gh-pages
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -79,9 +102,26 @@ jobs:
           version: v3.14.0
 
       - name: Update Helm repo index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          helm repo index . --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-          git add index.yaml
-          git commit -m "chore: update helm repo index [skip ci]" || echo "No changes to commit"
-          git pull --rebase origin gh-pages || true
-          git push
+          # Download all chart packages from releases
+          mkdir -p .chart-packages
+
+          for release in $(gh release list --limit 50 --json tagName --jq '.[].tagName' | grep -E '^[a-z]+-[a-z]+-[0-9]+\.[0-9]+\.[0-9]+$'); do
+            echo "Checking release: $release"
+            gh release download "$release" -D .chart-packages --pattern "*.tgz" 2>/dev/null || true
+          done
+
+          # Generate index from downloaded packages
+          if ls .chart-packages/*.tgz 1>/dev/null 2>&1; then
+            helm repo index .chart-packages --url https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+            mv .chart-packages/index.yaml ./index.yaml
+
+            git add index.yaml
+            git commit -m "chore: update helm repo index [skip ci]" || echo "No changes to commit"
+            git pull --rebase origin gh-pages || true
+            git push
+          else
+            echo "No chart packages found"
+          fi
