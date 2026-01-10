@@ -110,7 +110,7 @@ helm uninstall my-app
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set, a name is generated |
-| startupProbe | object | `{"enabled":false,"failureThreshold":30,"path":"/health","periodSeconds":10,"port":80}` | Startup probe configuration |
+| startupProbe | object | `{"enabled":false,"failureThreshold":30,"path":"/health","periodSeconds":10,"port":80,"timeoutSeconds":3}` | Startup probe configuration |
 | tolerations | list | `[]` | Tolerations for pod assignment |
 
 ## Changelog
