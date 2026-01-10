@@ -14,7 +14,7 @@
       "component": "frontend-service"
     }
   },
-  "separate-pull-requests": true,
+  "separate-pull-requests": false,
   "tag-separator": "-",
   "include-component-in-tag": true
 }
