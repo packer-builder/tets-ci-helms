@@ -96,6 +96,11 @@ helm uninstall my-app
 | ingress.tls | list | `[]` | TLS configuration for ingress |
 | livenessProbe | object | `{"enabled":true,"initialDelaySeconds":15,"path":"/health","periodSeconds":10,"port":80}` | Liveness probe configuration |
 | nameOverride | string | `""` | Override the name of the chart |
+| networkPolicy | object | `{"egress":[{"ports":[{"port":5432,"protocol":"TCP"}],"to":[{"podSelector":{"matchLabels":{"app":"database"}}}]}],"enabled":false,"ingress":[{"from":[{"podSelector":{"matchLabels":{"app":"frontend"}}}],"ports":[{"port":80,"protocol":"TCP"}]}],"policyTypes":["Ingress","Egress"]}` | Network Policy configuration |
+| networkPolicy.egress | list | `[{"ports":[{"port":5432,"protocol":"TCP"}],"to":[{"podSelector":{"matchLabels":{"app":"database"}}}]}]` | Egress rules |
+| networkPolicy.enabled | bool | `false` | Enable network policy |
+| networkPolicy.ingress | list | `[{"from":[{"podSelector":{"matchLabels":{"app":"frontend"}}}],"ports":[{"port":80,"protocol":"TCP"}]}]` | Ingress rules |
+| networkPolicy.policyTypes | list | `["Ingress","Egress"]` | Policy types to apply |
 | nodeSelector | object | `{}` | Node selector for pod assignment |
 | podAnnotations | object | `{}` | Annotations to add to the pod |
 | podLabels | object | `{}` | Labels to add to the pod |
