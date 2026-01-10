@@ -39,3 +39,4 @@ healthCheck:
   port: 9090
   initialDelaySeconds: 10
   periodSeconds: 15
+  timeoutSeconds: 5
