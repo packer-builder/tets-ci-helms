@@ -150,7 +150,7 @@ jobs:
           EOF
 
             # Parse index.yaml and generate chart sections with versions
-            python3 << 'PYSCRIPT'
+            python3 << 'PYSCRIPT' >> README.md
           import yaml
 
           with open('index.yaml', 'r') as f:
@@ -178,7 +178,6 @@ jobs:
                   print(f"```")
                   print(f"")
           PYSCRIPT
-            >> README.md
 
             cat >> README.md << 'EOF'
           ## Links
