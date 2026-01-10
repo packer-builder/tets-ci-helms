@@ -29,9 +29,9 @@ helm install my-release tets-ci-helms/<chart-name>
 
 A Helm chart for deploying API services
 
-**Latest version:** `1.2.1`
+**Latest version:** `1.1.0`
 
-**Available versions:** `1.2.1`, `1.2.0`, `1.1.0`, `1.0.1`, `1.0.0`, `0.2.1`, `0.2.0`
+**Available versions:** `1.1.0`, `1.0.1`, `1.0.0`, `0.2.1`, `0.2.0`
 
 ```bash
 helm install my-api-service tets-ci-helms/api-service
@@ -41,9 +41,9 @@ helm install my-api-service tets-ci-helms/api-service
 
 An example Helm chart for Kubernetes applications
 
-**Latest version:** `0.6.1`
+**Latest version:** `0.5.0`
 
-**Available versions:** `0.6.1`, `0.6.0`, `0.5.0`, `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
+**Available versions:** `0.5.0`, `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
 
 ```bash
 helm install my-example-app tets-ci-helms/example-app
@@ -53,9 +53,9 @@ helm install my-example-app tets-ci-helms/example-app
 
 A Helm chart for deploying Frontend services
 
-**Latest version:** `0.7.0`
+**Latest version:** `0.4.0`
 
-**Available versions:** `0.7.0`, `0.5.0`, `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
+**Available versions:** `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
 
 ```bash
 helm install my-frontend-service tets-ci-helms/frontend-service
