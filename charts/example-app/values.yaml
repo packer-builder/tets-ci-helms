@@ -126,3 +126,30 @@ startupProbe:
   failureThreshold: 30
   periodSeconds: 10
   timeoutSeconds: 3
+
+# -- Network Policy configuration
+networkPolicy:
+  # -- Enable network policy
+  enabled: false
+  # -- Policy types to apply
+  policyTypes:
+    - Ingress
+    - Egress
+  # -- Ingress rules
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: frontend
+      ports:
+        - protocol: TCP
+          port: 80
+  # -- Egress rules
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: database
+      ports:
+        - protocol: TCP
+          port: 5432
