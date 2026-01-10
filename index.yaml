@@ -3,7 +3,7 @@ entries:
   api-service:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.849973734Z"
+    created: "2026-01-10T17:32:28.255636972Z"
     description: A Helm chart for deploying API services
     digest: 451500c8300d2a6d39cc3fc9964a5b6239ae2f859c5bf8427cc1974c6b2bfe0c
     maintainers:
@@ -16,7 +16,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.84969816Z"
+    created: "2026-01-10T17:32:28.255355986Z"
     description: A Helm chart for deploying API services
     digest: 77b40496a37d7198ef4695fdce16e315c8e6dbd06bb3b45376487bb95fa5c5ab
     maintainers:
@@ -29,7 +29,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.849469163Z"
+    created: "2026-01-10T17:32:28.255148327Z"
     description: A Helm chart for deploying API services
     digest: 98aeb3da0e93a3deaa3993dc7f90c9e8892235d4d30ce664c0b86c88c2beadce
     maintainers:
@@ -42,7 +42,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.849241468Z"
+    created: "2026-01-10T17:32:28.254926622Z"
     description: A Helm chart for deploying API services
     digest: 5552fe5f777385bdfff6db2c8009a37cbe8caec0eb50d70f80c85a2844647107
     maintainers:
@@ -55,7 +55,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.848985461Z"
+    created: "2026-01-10T17:32:28.254687385Z"
     description: A Helm chart for deploying API services
     digest: 3b9b06114828a2b232c9721092c29d25810e6929fa5ebde744d77c0be5bba3f8
     maintainers:
@@ -68,7 +68,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.848776331Z"
+    created: "2026-01-10T17:32:28.254466211Z"
     description: A Helm chart for deploying API services
     digest: 911c9db1e89005ad2cbc11bcd7c8f550e7623abf46d6a15f767bd151836bbcbc
     maintainers:
@@ -82,7 +82,20 @@ entries:
   example-app:
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.85213762Z"
+    created: "2026-01-10T17:32:28.258946843Z"
+    description: An example Helm chart for Kubernetes applications
+    digest: 198fac43ef19abb8c85c775c0cc5711f9ac3299af290f633d9de1277725a4868
+    maintainers:
+    - email: your-email@example.com
+      name: your-name
+    name: example-app
+    type: application
+    urls:
+    - https://packer-builder.github.io/tets-ci-helms/example-app-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2026-01-10T17:32:28.258403376Z"
     description: An example Helm chart for Kubernetes applications
     digest: 761613ea26ffd5d15476d495cdaf50047eadaed40357cdb47b78279f313d163a
     maintainers:
@@ -95,7 +108,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.851741481Z"
+    created: "2026-01-10T17:32:28.257651311Z"
     description: An example Helm chart for Kubernetes applications
     digest: ea1ad10a4b48a0c9dee155ba0f4387537f378556c88ad6044827e4cc556109fa
     maintainers:
@@ -108,7 +121,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.851412207Z"
+    created: "2026-01-10T17:32:28.256985295Z"
     description: An example Helm chart for Kubernetes applications
     digest: 2a8b593f8fd513d5a68b30694bd7a170901d66f578100c61eecd6752c02fba97
     maintainers:
@@ -121,7 +134,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.851049079Z"
+    created: "2026-01-10T17:32:28.256643425Z"
     description: An example Helm chart for Kubernetes applications
     digest: 35dff040d28075b2e4d1a06725cfc9c0c8468288debabcc8bc76931044218a96
     maintainers:
@@ -134,7 +147,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.850706701Z"
+    created: "2026-01-10T17:32:28.256270818Z"
     description: An example Helm chart for Kubernetes applications
     digest: e93f31422e1a19660faa2d6cca709788c33f1dba1495935f3f4a35ae26818783
     maintainers:
@@ -147,7 +160,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.0.3
-    created: "2026-01-10T17:02:16.85037366Z"
+    created: "2026-01-10T17:32:28.255966979Z"
     description: An example Helm chart for Kubernetes applications
     digest: 23245f510603a6d3cb0fc6f8ca7e9853719403306630c0e711ee76c5d1c1c302
     maintainers:
@@ -161,7 +174,7 @@ entries:
   frontend-service:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.853926937Z"
+    created: "2026-01-10T17:32:28.260058613Z"
     description: A Helm chart for deploying Frontend services
     digest: 79ec11d05313d98e63e61df91535d18dda08c2839e8dcef5169d1781590bacc7
     maintainers:
@@ -174,7 +187,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.85363885Z"
+    created: "2026-01-10T17:32:28.259780573Z"
     description: A Helm chart for deploying Frontend services
     digest: af6514221752f3c6e91086e4fdb0e58372ea9579a231094e9d17f9892c04665f
     maintainers:
@@ -187,7 +200,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.853197727Z"
+    created: "2026-01-10T17:32:28.259557916Z"
     description: A Helm chart for deploying Frontend services
     digest: bb162251ba06af9061bf44d9592f70b3bbe466c65ff104adabc931e1ab8789fc
     maintainers:
@@ -200,7 +213,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.852693637Z"
+    created: "2026-01-10T17:32:28.259323247Z"
     description: A Helm chart for deploying Frontend services
     digest: 02c00aeac0732067d094a0359bd36dabf003670665e51b6d78cbd1c5249c1fbb
     maintainers:
@@ -213,7 +226,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-01-10T17:02:16.852334858Z"
+    created: "2026-01-10T17:32:28.259128192Z"
     description: A Helm chart for deploying Frontend services
     digest: 8bcaea8a248e9c33905cab6385b155a9abeb274f6e8148cfa8931b679abd66d8
     maintainers:
@@ -224,4 +237,4 @@ entries:
     urls:
     - https://packer-builder.github.io/tets-ci-helms/frontend-service-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-10T17:02:16.848422831Z"
+generated: "2026-01-10T17:32:28.254122578Z"

@@ -41,9 +41,9 @@ helm install my-api-service tets-ci-helms/api-service
 
 An example Helm chart for Kubernetes applications
 
-**Latest version:** `0.6.0`
+**Latest version:** `0.7.0`
 
-**Available versions:** `0.6.0`, `0.5.0`, `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
+**Available versions:** `0.7.0`, `0.6.0`, `0.5.0`, `0.4.0`, `0.3.0`, `0.2.0`, `0.1.0`
 
 ```bash
 helm install my-example-app tets-ci-helms/example-app
