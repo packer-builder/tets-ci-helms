@@ -41,3 +41,19 @@ lifecycle:
   preStop:
     enabled: true
     sleepSeconds: 5
+
+# Liveness probe configuration
+livenessProbe:
+  enabled: true
+  path: /healthz
+  port: 80
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+# Readiness probe configuration
+readinessProbe:
+  enabled: true
+  path: /ready
+  port: 80
+  initialDelaySeconds: 5
+  periodSeconds: 5
