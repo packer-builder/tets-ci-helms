@@ -104,6 +104,7 @@ helm uninstall my-frontend
 | readinessProbe.path | string | `"/ready"` |  |
 | readinessProbe.periodSeconds | int | `5` |  |
 | readinessProbe.port | int | `80` |  |
+| readinessProbe.timeoutSeconds | int | `3` |  |
 | replicaCount | int | `2` |  |
 | resources.limits.cpu | string | `"200m"` |  |
 | resources.limits.memory | string | `"256Mi"` |  |
