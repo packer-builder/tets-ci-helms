@@ -1,6 +1,6 @@
 # Default configuration for api-service
 # Minimum replicas for production workloads
-# Updated: testing release-please flow
+# Updated: full flow test - api-service
 replicaCount: 3
 
 image:
