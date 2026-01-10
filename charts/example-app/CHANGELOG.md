@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/packer-builder/tets-ci-helms/compare/example-app-0.6.0...example-app-0.7.0) (2026-01-10)
+
+
+### Features
+
+* **example-app:** add network policy configuration ([e11c5e0](https://github.com/packer-builder/tets-ci-helms/commit/e11c5e04c56d99eb0f5690bcc98151b295d41189))
+
 ## [0.6.0](https://github.com/packer-builder/tets-ci-helms/compare/example-app-0.5.0...example-app-0.6.0) (2026-01-10)
 
 
