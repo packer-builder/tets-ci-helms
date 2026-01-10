@@ -2,148 +2,20 @@ name: Release Charts
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'charts/**'
+    tags:
+      - '*-v[0-9]+.[0-9]+.[0-9]+'  # Matches: api-service-v1.0.0, example-app-v2.1.0, etc.
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      charts: ${{ steps.changed-charts.outputs.charts }}
-      charts_list: ${{ steps.changed-charts.outputs.charts_list }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get changed charts
-        id: changed-charts
-        run: |
-          # Get list of changed charts
-          CHANGED_DIRS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'charts/' | cut -d'/' -f2 | sort -u | grep -v '^$' || true)
-
-          if [[ -z "$CHANGED_DIRS" ]]; then
-            echo "charts=[]" >> "$GITHUB_OUTPUT"
-            echo "charts_list=" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Build JSON array and space-separated list
-          JSON_ARRAY="["
-          CHARTS_LIST=""
-          FIRST=true
-          for dir in $CHANGED_DIRS; do
-            if [[ -f "charts/$dir/Chart.yaml" ]]; then
-              if [[ "$FIRST" == "true" ]]; then
-                JSON_ARRAY="$JSON_ARRAY\"$dir\""
-                CHARTS_LIST="$dir"
-                FIRST=false
-              else
-                JSON_ARRAY="$JSON_ARRAY,\"$dir\""
-                CHARTS_LIST="$CHARTS_LIST $dir"
-              fi
-            fi
-          done
-          JSON_ARRAY="$JSON_ARRAY]"
-
-          echo "charts=$JSON_ARRAY" >> "$GITHUB_OUTPUT"
-          echo "charts_list=$CHARTS_LIST" >> "$GITHUB_OUTPUT"
-          echo "Changed charts: $JSON_ARRAY"
-
-  # Single job to bump ALL chart versions sequentially - avoids race conditions
-  bump-versions:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.charts != '[]'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    outputs:
-      bumped_charts: ${{ steps.bump-all.outputs.bumped_charts }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Bump all chart versions
-        id: bump-all
-        run: |
-          chmod +x scripts/detect-bump-type.sh
-          chmod +x scripts/bump-chart-version.sh
-
-          CHARTS="${{ needs.detect-changes.outputs.charts_list }}"
-          BUMPED_CHARTS=""
-          COMMIT_MSG=""
-
-          echo "Processing charts: $CHARTS"
-
-          for chart in $CHARTS; do
-            echo "=== Processing $chart ==="
-
-            # Detect bump type
-            BUMP_TYPE=$(./scripts/detect-bump-type.sh "$chart")
-            echo "Bump type for $chart: $BUMP_TYPE"
-
-            # Bump version
-            NEW_VERSION=$(./scripts/bump-chart-version.sh "charts/$chart" "$BUMP_TYPE")
-            echo "New version for $chart: $NEW_VERSION"
-
-            # Stage the change
-            git add "charts/$chart/Chart.yaml"
-
-            # Build commit message
-            if [[ -z "$COMMIT_MSG" ]]; then
-              COMMIT_MSG="chore: bump chart versions [skip ci]"$'\n\n'
-            fi
-            COMMIT_MSG="${COMMIT_MSG}- ${chart}: ${NEW_VERSION} (${BUMP_TYPE})"$'\n'
-
-            # Track bumped charts
-            if [[ -z "$BUMPED_CHARTS" ]]; then
-              BUMPED_CHARTS="$chart"
-            else
-              BUMPED_CHARTS="$BUMPED_CHARTS $chart"
-            fi
-          done
-
-          echo "bumped_charts=$BUMPED_CHARTS" >> "$GITHUB_OUTPUT"
-
-          # Single commit with all version bumps
-          if git diff --staged --quiet; then
-            echo "No version changes to commit"
-          else
-            git commit -m "$COMMIT_MSG"
-            git pull --rebase origin main
-            git push
-            echo "Committed and pushed all version bumps"
-          fi
-
-  # Parallel release jobs - safe because they don't modify the repo
-  release-charts:
-    needs: [detect-changes, bump-versions]
-    if: needs.detect-changes.outputs.charts != '[]'
+  release-chart:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pages: write
-    strategy:
-      matrix:
-        chart: ${{ fromJson(needs.detect-changes.outputs.charts) }}
-      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main  # Get latest with version bumps
 
       - name: Configure Git
         run: |
@@ -164,7 +36,7 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
   update-index:
-    needs: release-charts
+    needs: release-chart
     runs-on: ubuntu-latest
     permissions:
       contents: write
