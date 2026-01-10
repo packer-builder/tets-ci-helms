@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    "charts/api-service": {
+      "release-type": "helm",
+      "component": "api-service"
+    },
+    "charts/example-app": {
+      "release-type": "helm",
+      "component": "example-app"
+    },
+    "charts/frontend-service": {
+      "release-type": "helm",
+      "component": "frontend-service"
+    }
+  },
+  "separate-pull-requests": true,
+  "tag-separator": "-",
+  "include-component-in-tag": true
+}

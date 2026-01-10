@@ -48,6 +48,40 @@ This repository uses [Conventional Commits](https://www.conventionalcommits.org/
 - `fix(chart-name): description` - Patch version bump
 - `feat(chart-name)!: description` - Major version bump (breaking change)
 
+### Release Please
+
+This repository uses [Release Please](https://github.com/googleapis/release-please) to automate releases for each chart independently.
+
+**How it works:**
+
+1. When you push commits to `main` that affect a chart (e.g., `charts/api-service/`), Release Please creates a PR for that specific chart
+2. The PR includes:
+   - Automatic version bump in `Chart.yaml`
+   - Generated CHANGELOG based on conventional commits
+3. When you merge the PR, a GitHub Release is created with a tag like `api-service-v1.2.0`
+
+**Configuration files:**
+
+| File | Description |
+|------|-------------|
+| `release-please-config.json` | Defines packages and release settings for each chart |
+| `.release-please-manifest.json` | Tracks current versions of each chart |
+
+**Adding a new chart to Release Please:**
+
+1. Add the chart to `release-please-config.json`:
+   ```json
+   "charts/my-new-chart": {
+     "release-type": "helm",
+     "component": "my-new-chart"
+   }
+   ```
+
+2. Add the initial version to `.release-please-manifest.json`:
+   ```json
+   "charts/my-new-chart": "0.1.0"
+   ```
+
 ### Testing locally
 
 ```bash
