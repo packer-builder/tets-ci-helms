@@ -85,6 +85,8 @@ helm uninstall my-api
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
 | image.tag | string | `"latest"` |  |
+| podDisruptionBudget.enabled | bool | `false` |  |
+| podDisruptionBudget.minAvailable | int | `1` |  |
 | replicaCount | int | `3` |  |
 | resourceProfile | string | `"default"` |  |
 | resources.default.limits.cpu | string | `"100m"` |  |
